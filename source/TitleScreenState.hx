@@ -1,6 +1,6 @@
 package;
 
-import flixel.ui.FlxButton;
+import flixel.text.FlxText;
 import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.FlxG;
@@ -12,7 +12,7 @@ class TitleScreenState extends FlxState
 
     var PlayButton:FlxSprite;
 
-
+    var Title:FlxText;
 
     override function create() {
         super.create();
@@ -30,7 +30,10 @@ class TitleScreenState extends FlxState
         PlayButton.scale.set(0.5, 0.5);
         PlayButton.updateHitbox();
 
+        Title = new FlxText(340, 165, 0, "Basketball Game", 54, false);
+
         add(PlayButton);
+        add(Title);
     }
 
     override function update(elapsed:Float) {
