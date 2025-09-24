@@ -14,6 +14,8 @@ class TitleScreenState extends FlxState
 
     var Title:FlxText;
 
+    var DeleteText:FlxText;
+
     override function create() {
         super.create();
 
@@ -32,8 +34,11 @@ class TitleScreenState extends FlxState
 
         Title = new FlxText(340, 165, 0, "Basketball Game", 54, false);
 
+        DeleteText = new FlxText(980, 705, 0, "Press Q and E at the same time to delete High Score.", 8, false);
+
         add(PlayButton);
         add(Title);
+        add(DeleteText);
     }
 
     override function update(elapsed:Float) {
