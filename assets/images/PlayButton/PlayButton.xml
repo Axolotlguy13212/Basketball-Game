@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="PlayButton.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="Normal0000" x="354" y="0" width="354" height="204" frameX="2" frameY="2" frameWidth="350" frameHeight="200"/>
+	<SubTexture name="Hover0000" x="0" y="0" width="354" height="204" frameX="2" frameY="2" frameWidth="350" frameHeight="200"/>
+</TextureAtlas>

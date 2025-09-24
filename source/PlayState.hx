@@ -29,6 +29,10 @@ class PlayState extends FlxState
 
 	var save:FlxSave;
 
+	var SpawnTime:Float = 1;
+
+	//var BasketballSpeed:Float = 10;
+
 	override public function create()
 	{
 		super.create();
@@ -36,9 +40,9 @@ class PlayState extends FlxState
 		save = new FlxSave();
 
 		// Basketball code
-		var timer = new FlxTimer();
+		var Basketballtimer = new FlxTimer();
 
-		timer.start(1, function(t:FlxTimer):Void {
+		Basketballtimer.start(SpawnTime, function(t:FlxTimer):Void {
             spawnBasketball();
         }, 0);
 
@@ -54,6 +58,14 @@ class PlayState extends FlxState
 		// BgColor
 		bgColor = 0xFF00AEFF;
 
+
+		var Difficultytimer = new FlxTimer();
+
+		Difficultytimer.start(5, function(t:FlxTimer):Void {
+            DifficultyIncrease();
+        }, 0);
+
+
 		// Score Text
 		ScoreText = new FlxText(0, 0, 0, "Score: ", 50, false);
 		HealthText = new FlxText(670, 0, 0, "Score: ", 50, false);
@@ -67,7 +79,7 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 
-		trace("Current Score is: " + ScoreValue);
+		//trace("Current Score is: " + ScoreValue);
 
 		ScoreText.text = "Score: " + ScoreValue;
 		HealthText.text = "Health: " + HealthValue;
@@ -103,5 +115,16 @@ class PlayState extends FlxState
 		basketball = new Basketball(baskPosX, -100, this);
 
 		add(basketball);
+	}
+
+	function DifficultyIncrease()
+	{
+		SpawnTime += -0.1;
+
+		if (SpawnTime == 0)
+		{
+			ScoreValue += 50;
+			SpawnTime = 1;
+		}
 	}
 }
