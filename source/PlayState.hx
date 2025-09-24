@@ -54,6 +54,8 @@ class PlayState extends FlxState
 			HighScoreValue = 0;
 		}
 
+		ScoreValue = 0; // Html5 is buggy with this stuff for some reason? So declared the value to be 0 again
+
 		spawnBasketball();
 
 		// BgColor
@@ -68,9 +70,9 @@ class PlayState extends FlxState
 
 
 		// Score Text
-		ScoreText = new FlxText(0, 0, 0, "Score: ", 50, false);
-		HealthText = new FlxText(670, 0, 0, "Score: ", 50, false);
-		HighScoreText = new FlxText(0, 650, 0, "High Score: ", 50, false);
+		ScoreText = new FlxText(2, 0, 0, "Score: ", 50, false);
+		HealthText = new FlxText(1000, 0, 0, "Score: ", 50, false);
+		HighScoreText = new FlxText(2, 650, 0, "High Score: ", 50, false);
 		add(ScoreText);
 		add(HealthText);
 		add(HighScoreText);
