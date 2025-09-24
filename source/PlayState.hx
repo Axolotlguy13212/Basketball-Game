@@ -6,6 +6,7 @@ import flixel.FlxState;
 import flixel.FlxG;
 import objects.Basketball;
 import openfl.system.System;
+import flixel.util.FlxSave;
 
 class PlayState extends FlxState
 {
@@ -22,9 +23,17 @@ class PlayState extends FlxState
 
 	public var HealthValue:Float = 5;
 
+	var HighScoreText:FlxText;
+
+	var HighScoreValue:Float;
+
+	var save:FlxSave;
+
 	override public function create()
 	{
 		super.create();
+
+		save = new FlxSave();
 
 		// Basketball code
 		var timer = new FlxTimer();
@@ -32,6 +41,13 @@ class PlayState extends FlxState
 		timer.start(1, function(t:FlxTimer):Void {
             spawnBasketball();
         }, 0);
+
+		if (save.bind("HighScore"))
+		{
+			HighScoreValue = save.data.HighScore != null ? save.data.HighScore : 0;
+		} else {
+			HighScoreValue = 0;
+		}
 
 		spawnBasketball();
 
@@ -41,8 +57,10 @@ class PlayState extends FlxState
 		// Score Text
 		ScoreText = new FlxText(0, 0, 0, "Score: ", 50, false);
 		HealthText = new FlxText(670, 0, 0, "Score: ", 50, false);
+		HighScoreText = new FlxText(0, 650, 0, "High Score: ", 50, false);
 		add(ScoreText);
 		add(HealthText);
+		add(HighScoreText);
 	}
 
 	override public function update(elapsed:Float)
@@ -53,6 +71,7 @@ class PlayState extends FlxState
 
 		ScoreText.text = "Score: " + ScoreValue;
 		HealthText.text = "Health: " + HealthValue;
+		HighScoreText.text = "High Score: " + HighScoreValue;
 
 		if (basketball.overlapsPoint(FlxG.mouse.getViewPosition()))
         {
@@ -67,6 +86,13 @@ class PlayState extends FlxState
 		if (HealthValue < 1)
 		{
 			System.exit(0);
+		}
+
+		if (ScoreValue > HighScoreValue)
+		{
+			HighScoreValue = ScoreValue;
+			save.data.HighScore = HighScoreValue;
+			save.flush();
 		}
 	}
 
