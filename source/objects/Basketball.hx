@@ -19,6 +19,8 @@ class Basketball extends FlxSprite
 
         this.scale.set(0.5, 0.5);
 
+        this.updateHitbox();
+
         playState = state;
     }
 
