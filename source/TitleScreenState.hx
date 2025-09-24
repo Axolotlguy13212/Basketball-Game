@@ -24,7 +24,7 @@ class TitleScreenState extends FlxState
 
         bgColor = 0xFF00AEFF;
 
-        PlayButton = new FlxSprite(500, 430);
+        PlayButton = new FlxSprite(540, 430);
 
         var filePath:String = "assets/images/PlayButton";
         PlayButton.frames = FlxAtlasFrames.fromSparrow(filePath + ".png", filePath + ".xml"); // Thanks to Redar13 (https://github.com/Redar13) for this XML crap here: https://github.com/HaxeFlixel/flixel/issues/3492
