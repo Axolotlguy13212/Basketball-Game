@@ -8,6 +8,7 @@ import objects.Basketball;
 import openfl.system.System;
 import js.Browser; // Note to Self: COMMENT OUT WHEN BUILDING DESKTOP
 import flixel.util.FlxSave;
+import GameOverState;
 
 class PlayState extends FlxState
 {
@@ -100,12 +101,7 @@ class PlayState extends FlxState
 
 		if (HealthValue < 1)
 		{
-			// HTML5 NOTE TO SELF: COMMENT WHEN BUILDING DESKTOP
-			Browser.alert("You Suck lol\nRefresh the page");
-			throw "The FitnessGram Pacer test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter Pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal *boop*. A single lap should be completed each time you hear this sound *ding*. Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.";
-			// Desktop, comment out when exporting to html5
-			trace ("The FitnessGram Pacer test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter Pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal *boop*. A single lap should be completed each time you hear this sound *ding*. Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.");
-			throw "You Suck lol";
+			
 		}
 
 		if (ScoreValue > HighScoreValue)
