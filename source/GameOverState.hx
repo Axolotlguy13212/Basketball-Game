@@ -13,7 +13,7 @@ class GameOverState extends FlxState
     override function create() {
         super.create();
 
-        RetryButton = new FlxSprite(540, 430);
+        RetryButton = new FlxSprite(440, 430);
 
         RetryButton.frames = FlxAtlasFrames.fromSparrow("assets/images/RetryButton.png", "assets/images/RetryButton.xml");
 
