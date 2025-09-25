@@ -101,7 +101,7 @@ class PlayState extends FlxState
 
 		if (HealthValue < 1)
 		{
-			
+			FlxG.switchState(GameOverState.new);
 		}
 
 		if (ScoreValue > HighScoreValue)

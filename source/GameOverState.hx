@@ -17,6 +17,9 @@ class GameOverState extends FlxState
 
         RetryButton.frames = FlxAtlasFrames.fromSparrow("assets/images/RetryButton.png", "assets/images/RetryButton.xml");
 
+        RetryButton.animation.addByPrefix("Normal", "Normal", 24, false, false, false);
+        RetryButton.animation.addByPrefix("Hover", "Hover", 24, false, false, false);
+
         add(RetryButton);
     }
 
